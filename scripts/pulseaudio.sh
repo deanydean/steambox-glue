@@ -1,4 +1,4 @@
 #!/bin/bash
 # Start pulse audio
 
-/usr/bin/pulseaudio &
+/usr/bin/pulseaudio --daemonize
