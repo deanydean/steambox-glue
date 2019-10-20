@@ -4,8 +4,8 @@
 # Start all the bits that steam needs
 for service in no-blanking \
                slow-dvd \
-               xboxdrv \
-               pulseaudio
+               pulseaudio \
+               openbox
 do
     ${SBG_HOME}/scripts/${service}.sh
 done
@@ -14,4 +14,8 @@ done
 #${SBG_HOME}/scripts/vnc.sh
 
 # Start steam
-exec /usr/games/steam ${SBG_STEAM_ARGS}
+/usr/games/steam ${SBG_STEAM_ARGS} &
+
+# Exec an xterm to control the session
+# This is useful to allow remote control over the display
+exec ${SBG_HOME}/scripts/xterm.sh
