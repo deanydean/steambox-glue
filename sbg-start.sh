@@ -17,9 +17,12 @@ function start_steambox_display()
         sleep 10
     done
 
-    echo "Not displaying ${DISPLAY_SCRIPT}"
+    echo "Not displaying ${DISPLAY_SCRIPT}, starting terminal...."
+    ${SBG_HOME}/scripts/tmux.sh
 }
 
 mkdir -p "$(dirname ${SBG_CONFIG_PATH})"
 
 start_steambox_display 1>>${SBG_LOG} 2>>${SBG_LOG}
+echo "Complete, exiting session."
+exit
